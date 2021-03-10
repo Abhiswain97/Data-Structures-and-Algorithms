@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <limits.h>
 
 void merge(int arr[], int start, int mid, int end)
 {
