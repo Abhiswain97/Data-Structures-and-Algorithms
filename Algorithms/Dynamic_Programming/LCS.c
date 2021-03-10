@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// TODO: Doesn't work properly. Some issues to fix.
+
 int max(int a, int b) { return (a > b) ? a : b; }
 
 int lcs(char s1[], char s2[], int m, int n)
@@ -15,9 +17,9 @@ int lcs(char s1[], char s2[], int m, int n)
         }
     }
 
-    for (int i = 0; i < m; i++)
+    for (int i = 0; i <= m; i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j <= n; j++)
         {
             if (i == 0 || j == 0)
                 L[i][j] = 0;
