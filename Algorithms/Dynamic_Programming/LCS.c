@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 
-// TODO: Doesn't work properly. Some issues to fix.
-
 int max(int a, int b) { return (a > b) ? a : b; }
 
 int lcs(char s1[], char s2[], int m, int n)
 {
-    int L[1000][1000];
+
+    int L[100][100];
 
     for (int i = 0; i < m; i++)
     {
