@@ -12,7 +12,8 @@ void InsertNode(int x);
 void PrintNode();
 void InsertNth(int x, int n);
 
-void InsertNode(int x){
+void InsertNode(int x)
+{
     Node *temp = new Node();
 
     temp->data = x;
@@ -21,9 +22,10 @@ void InsertNode(int x){
     head = temp;
 }
 
-void PrintNode(){
+void PrintNode()
+{
     struct Node *temp = head;
-    
+
     std::cout << "The list is: ";
     while (temp != NULL)
     {
@@ -40,13 +42,12 @@ int main(int argc, char const *argv[])
 
     std::cin >> n;
 
-    while (n-- > 0){
+    while (n-- > 0)
+    {
         std::cin >> x;
         InsertNode(x);
         PrintNode();
     }
 
-
     return 0;
 }
-

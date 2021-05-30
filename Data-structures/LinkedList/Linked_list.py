@@ -106,6 +106,19 @@ class LinkedList:
 
         self.print_list()
 
+    def reverse_recursive(self, curr, prev):
+        next = curr.link
+        curr.link = prev
+        
+        self.reverse_recursive(next, curr)
+
+    def reverse_print(self, curr):
+        if curr is not None:
+            return
+
+        self.reverse_print(curr.link)
+        print(curr.data, end=' ')
+
     def print_list(self):
         temp = self.head 
         print("The list is: ", end='')   
@@ -155,6 +168,6 @@ if __name__ == '__main__':
 
     print(len(ll))
 
-    ll.reverse()
+
 
     
