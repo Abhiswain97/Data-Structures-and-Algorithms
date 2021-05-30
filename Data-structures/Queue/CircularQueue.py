@@ -1,3 +1,5 @@
+# More memory efficient as it utilises Dequed cells
+
 import random
 
 
