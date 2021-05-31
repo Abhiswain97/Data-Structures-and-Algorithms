@@ -1,39 +1,38 @@
 import operator
+from typing import Dict, List
 
 
 class InfixToPostfix:
-    def __init__(self):
-        self.stack = []
-        self.precedence = {"+": 1, "-": 1, "*": 2, "/": 2}
-        self.operators = ["+", "-", "/", "*"]
-        self.postfix = str()
+    def __init__(self, expr: str):
+        self.expr: List[str] = expr.split()
+        self.stack: List[str] = []
+        self.precedence: Dict = {"+": 1, "-": 1, "*": 2, "/": 2}
+        self.postfix: str = str()
 
-    def _size(self):
+    def _size(self) -> int:
         return len(self.stack)
 
-    def _stack_push(self, stack):
-        self.stack.append(stack)
+    def _stack_push(self, data: str) -> None:
+        self.stack.append(data)
 
-    def _stack_pop(self):
+    def _stack_pop(self) -> None:
         self.stack.pop()
 
-    def _stack_top(self):
+    def _stack_top(self) -> str:
         return self.stack[-1]
 
-    def _check_if_operator(self, ch):
-        return ch in self.operators
+    def _check_if_operator(self, ch: str) -> bool:
+        return ch in self.precedence.keys()
 
-    def has_higher_precedence(self, top, ch):
+    def _has_higher_precedence(self, top: str, ch: str) -> bool:
         return self.precedence[top] > self.precedence[ch]
 
-    def convert(self, expr: str):
-        expr = expr.split()
-
-        for c in expr:
+    def convert(self) -> str:
+        for c in self.expr:
             if not self._check_if_operator(c):
                 self.postfix += c
             else:
-                while self._size() != 0 and self.has_higher_precedence(
+                while self._size() != 0 and self._has_higher_precedence(
                     self._stack_top(), c
                 ):
                     self.postfix += self._stack_top()
@@ -45,12 +44,12 @@ class InfixToPostfix:
             self.postfix += self._stack_top()
             self._stack_pop()
 
+        return self.postfix
+
 
 if __name__ == "__main__":
     s = "A + B * C - D + E"
 
-    solver = InfixToPostfix()
+    res = InfixToPostfix(s).convert()
 
-    solver.convert(s)
-
-    print(f"Postfix expression: {solver.postfix}")
+    print(f"Postfix expression: {res}")

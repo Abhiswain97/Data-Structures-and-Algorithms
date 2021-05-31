@@ -3,31 +3,32 @@ Does not support decimal division, works only for operators +, -, /(floor diviso
 """
 
 import operator
+from typing import Dict, List, Tuple, Type
 
 
 class SolvePostfix:
     def __init__(self):
-        self.data = []
-        self.operators = {
+        self.data: List[int] = []
+        self.operators: Dict[str] = {
             "+": operator.add,
             "-": operator.sub,
             "/": operator.floordiv,
             "*": operator.mul,
         }
 
-    def check(self, ch):
+    def check(self, ch: str) -> bool:
         return ch in self.operators.keys()
 
-    def push(self, data):
+    def push(self, data: int) -> None:
         self.data.append(data)
 
-    def pop_stack(self):
+    def pop_stack(self) -> Tuple[int, int]:
         val1 = self.data.pop()
         val2 = self.data.pop()
 
         return val1, val2
 
-    def fail_check(self, expr):
+    def fail_check(self, expr: List[str]) -> bool:
         return expr[-2] not in self.operators.keys()
 
     def solve(self, expr: str):
@@ -37,14 +38,14 @@ class SolvePostfix:
         eg:
            "1 2 * 2 3 + 12 2 * -"  
         """
-        expr = expr.split()
+        expr_list: List[str] = expr.split()
 
-        if self.fail_check(expr):
+        if self.fail_check(expr_list):
             print(
                 "[Warning]: No operator specified for the last two operands. So the result will the output of the last operation."
             )
 
-        for c in expr:
+        for c in expr_list:
             if self.check(c):
                 v1, v2 = self.pop_stack()
 
