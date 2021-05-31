@@ -1,4 +1,4 @@
-# More memory efficient as it utilises Dequed cells
+# More memory efficient as it utilises De-queued cells
 
 import random
 
