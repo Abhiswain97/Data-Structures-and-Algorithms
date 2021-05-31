@@ -8,8 +8,12 @@ import operator
 class SolvePostfix:
     def __init__(self):
         self.data = []
-        self.operators = {'+': operator.add, '-': operator.sub,
-                          '/': operator.floordiv, '*': operator.mul}
+        self.operators = {
+            "+": operator.add,
+            "-": operator.sub,
+            "/": operator.floordiv,
+            "*": operator.mul,
+        }
 
     def check(self, ch):
         return ch in self.operators.keys()
@@ -36,7 +40,9 @@ class SolvePostfix:
         expr = expr.split()
 
         if self.fail_check(expr):
-            print("[Warning]: No operator specified for the last two operands. So the result will the output of the last operation.")
+            print(
+                "[Warning]: No operator specified for the last two operands. So the result will the output of the last operation."
+            )
 
         for c in expr:
             if self.check(c):
