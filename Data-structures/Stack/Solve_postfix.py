@@ -1,3 +1,7 @@
+"""
+Does not support decimal division, works only for operators +, -, /(floor divison), *
+"""
+
 import operator
 
 
