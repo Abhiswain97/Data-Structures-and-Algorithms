@@ -1,2 +1,2 @@
 # Data-Structures-and-Algorithms
-Implementations of Data Structures and Algorithms in various languages for self-learning.
+Implementations of Data Structures and Algorithms in python for self-learning.
