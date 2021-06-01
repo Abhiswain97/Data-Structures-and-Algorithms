@@ -80,14 +80,14 @@ class DoublyLinkedList:
 
     def print_list(self):
         temp = self.head
-        print("The list is: ", end='')
+        print("The list is: ", end="")
         while temp:
-            print(temp.data, end=' ')
+            print(temp.data, end=" ")
             temp = temp.next
         print()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     dll = DoublyLinkedList()
 
     for i in range(5):

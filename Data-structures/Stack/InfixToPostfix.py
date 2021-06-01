@@ -6,7 +6,7 @@ class InfixToPostfix:
     def __init__(self, expr: str):
         self.expr: List[str] = expr.split()
         self.stack: List[str] = []
-        self.precedence: Dict = {"+": 1, "-": 1, "*": 2, "/": 2}
+        self.precedence: Dict[str, int] = {"+": 1, "-": 1, "*": 2, "/": 2}
         self.postfix: str = str()
 
     def _size(self) -> int:
