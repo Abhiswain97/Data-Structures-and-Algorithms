@@ -40,7 +40,7 @@ Implementations of Data Structures and Algorithms in python for self-learning.
 
 3. Now, you can use formatting and type-checking. Do, `make FNAME=<path to file you want to run from the repo>` and now it formats, type-checks and runs it. 
 
-4. You do specific things also like:
+4. You can do specific things also like:
     - `make format FNAME=<path to file you want to run from the repo>`
     - `make type_check FNAME=<path to file you want to run from the repo>`
 
