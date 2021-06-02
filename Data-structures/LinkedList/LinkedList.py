@@ -1,9 +1,11 @@
 import random
 
+
 class Node:
-    def __init__(self, data):
-        self.data = data
-        self.link = None
+    def __init__(self, data: int):
+        self.data: int = data
+        self.link: None = None
+
 
 class LinkedList:
     def __init__(self):
@@ -16,13 +18,13 @@ class LinkedList:
 
     def insertEnd(self, data: int):
         new_node = Node(data)
-        
+
         if self.head is None:
             self.head = new_node
             return
 
         temp = self.head
-        
+
         while temp.link:
             temp = temp.link
 
@@ -31,7 +33,7 @@ class LinkedList:
     def insertafterNth(self, data: int, n: int):
 
         if self.head is None:
-            self.insertBegin()
+            self.insertBegin(data)
             return
 
         temp = self.head
@@ -109,38 +111,37 @@ class LinkedList:
     def reverse_recursive(self, curr, prev):
         next = curr.link
         curr.link = prev
-        
+
         self.reverse_recursive(next, curr)
 
-    def reverse_print(self, curr):
+    def reverse_print(self, curr: Node):
         if curr is not None:
             return
 
         self.reverse_print(curr.link)
-        print(curr.data, end=' ')
+        print(curr.data, end=" ")
 
     def print_list(self):
-        temp = self.head 
-        print("The list is: ", end='')   
+        temp = self.head
+        print("The list is: ", end="")
         while temp:
-            print(temp.data, end=' ')
+            print(temp.data, end=" ")
             temp = temp.link
         print()
 
     def __len__(self):
-        temp = self.head 
-        c = 0   
+        temp = self.head
+        c = 0
         while temp:
             c += 1
             temp = temp.link
         return c
 
 
+if __name__ == "__main__":
 
-if __name__ == '__main__':
-    
-    ll = LinkedList()
-    
+    ll: LinkedList = LinkedList()
+
     for i in range(5):
         n = random.randint(0, 100)
 
@@ -167,7 +168,3 @@ if __name__ == '__main__':
     ll.deleteAfterNth(3)
 
     print(len(ll))
-
-
-
-    
