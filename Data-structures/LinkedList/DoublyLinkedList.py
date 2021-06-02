@@ -3,17 +3,17 @@ import random
 
 class Node:
     def __init__(self, data: int):
-        self.data = data
-        self.next = None
-        self.prev = None
+        self.data: int = data
+        self.next: None = None
+        self.prev: None = None
 
 
 class DoublyLinkedList:
     def __init__(self):
         self.head = None
 
-    def insertAtHead(self, data):
-        new_node = Node(data)
+    def insertAtHead(self, data: int):
+        new_node: Node = Node(data)
 
         if self.head is None:
             self.head = new_node
@@ -24,7 +24,7 @@ class DoublyLinkedList:
 
         self.head = new_node
 
-    def insertAtTail(self, data):
+    def insertAtTail(self, data: int):
         new_node = Node(data)
 
         if self.head is None:
@@ -88,7 +88,7 @@ class DoublyLinkedList:
 
 
 if __name__ == "__main__":
-    dll = DoublyLinkedList()
+    dll: DoublyLinkedList = DoublyLinkedList()
 
     for i in range(5):
         n = random.randint(0, 100)

@@ -1,37 +1,39 @@
 import random
 
+
 class Node:
-    def __init__(self, data):
-        self.data = data
-        self.link = None
+    def __init__(self, data: int):
+        self.data: int = data
+        self.link: None = None
+
 
 class LinkedList:
     def __init__(self):
         self.head = None
 
-    def insertBegin(self, data: int):
+    def insertBegin(self, data: int) -> None:
         temp = Node(data)
         temp.link = self.head
         self.head = temp
 
-    def insertEnd(self, data: int):
+    def insertEnd(self, data: int) -> None:
         new_node = Node(data)
-        
+
         if self.head is None:
             self.head = new_node
             return
 
         temp = self.head
-        
+
         while temp.link:
             temp = temp.link
 
         temp.link = new_node
 
-    def insertafterNth(self, data: int, n: int):
+    def insertafterNth(self, data: int, n: int) -> None:
 
         if self.head is None:
-            self.insertBegin()
+            self.insertBegin(data)
             return
 
         temp = self.head
@@ -48,7 +50,7 @@ class LinkedList:
 
             i += 1
 
-    def deleteBegin(self):
+    def deleteBegin(self) -> None:
         temp = self.head
         temp = temp.link
 
@@ -58,7 +60,7 @@ class LinkedList:
 
         self.print_list()
 
-    def deleteEnd(self):
+    def deleteEnd(self) -> None:
         prev = self.head
         temp = prev.link
 
@@ -72,7 +74,7 @@ class LinkedList:
 
         self.print_list()
 
-    def deleteAfterNth(self, n: int):
+    def deleteAfterNth(self, n: int) -> None:
         prev = self.head
         temp = prev.link
 
@@ -93,7 +95,7 @@ class LinkedList:
 
         self.print_list()
 
-    def reverse(self):
+    def reverse(self) -> None:
         prev, curr = None, self.head
 
         while curr:
@@ -106,41 +108,40 @@ class LinkedList:
 
         self.print_list()
 
-    def reverse_recursive(self, curr, prev):
+    def reverse_recursive(self, curr, prev) -> None:
         next = curr.link
         curr.link = prev
-        
+
         self.reverse_recursive(next, curr)
 
-    def reverse_print(self, curr):
+    def reverse_print(self, curr: Node) -> None:
         if curr is not None:
             return
 
         self.reverse_print(curr.link)
-        print(curr.data, end=' ')
+        print(curr.data, end=" ")
 
-    def print_list(self):
-        temp = self.head 
-        print("The list is: ", end='')   
+    def print_list(self) -> None:
+        temp = self.head
+        print("The list is: ", end="")
         while temp:
-            print(temp.data, end=' ')
+            print(temp.data, end=" ")
             temp = temp.link
         print()
 
-    def __len__(self):
-        temp = self.head 
-        c = 0   
+    def __len__(self) -> int:
+        temp = self.head
+        c = 0
         while temp:
             c += 1
             temp = temp.link
         return c
 
 
+if __name__ == "__main__":
 
-if __name__ == '__main__':
-    
-    ll = LinkedList()
-    
+    ll: LinkedList = LinkedList()
+
     for i in range(5):
         n = random.randint(0, 100)
 
@@ -167,7 +168,3 @@ if __name__ == '__main__':
     ll.deleteAfterNth(3)
 
     print(len(ll))
-
-
-
-    

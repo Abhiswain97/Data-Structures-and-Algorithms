@@ -1,14 +1,17 @@
 # Standard Queue
 
 import random
+from typing import List
 
 
 class Queue:
-    def __init__(self, size=5):
-        self.data = [0] * size
-        self.size = size
-        self.front = -1
-        self.rear = -1
+    MAX_SIZE: int = 100
+
+    def __init__(self):
+        self.data: List[int] = [0] * Queue.MAX_SIZE
+        self.size: int = Queue.MAX_SIZE
+        self.front: int = -1
+        self.rear: int = -1
 
     def __len__(self):
         return self.size
@@ -19,7 +22,7 @@ class Queue:
     def isFull(self):
         return self.rear == (self.size - 1)
 
-    def push(self, data):
+    def push(self, data: int):
         if self.isFull():
             print("Queue is full")
             return
@@ -43,16 +46,18 @@ class Queue:
 
     def Qfront(self):
         print(
-            f"Element at front: {self.data[self.front]}") if self.front != -1 else print("Queue is empty")
+            f"Element at front: {self.data[self.front]}"
+        ) if self.front != -1 else print("Queue is empty")
 
     def Qrear(self):
-        print(
-            f"Element at rear: {self.data[self.rear]}") if self.rear != -1 else print("Queue is empty")
+        print(f"Element at rear: {self.data[self.rear]}") if self.rear != -1 else print(
+            "Queue is empty"
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
-    Q = Queue()
+    Q: Queue = Queue()
 
     for i in range(5):
         n = random.randint(0, 100)

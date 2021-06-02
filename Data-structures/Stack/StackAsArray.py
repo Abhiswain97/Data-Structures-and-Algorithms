@@ -1,13 +1,16 @@
 import random
+from typing import List
 
 
 class Stack:
-    def __init__(self, size):
-        self.data = [0] * size
-        self.top = -1
-        self.size = size
+    MAX_SIZE = 100
 
-    def push(self, data):
+    def __init__(self):
+        self.data: List[int] = [0] * Stack.MAX_SIZE
+        self.top: int = -1
+        self.size: int = Stack.MAX_SIZE
+
+    def push(self, data: int):
         if self.top == (self.size - 1):
             print("Stack Overflow")
             return
@@ -28,7 +31,7 @@ class Stack:
 
 
 if __name__ == "__main__":
-    stack = Stack(5)
+    stack: Stack = Stack()
 
     for i in range(5):
         n = random.randint(0, 100)
