@@ -1,10 +1,11 @@
 PYTHON = C:\Users\abhi0\anaconda3\python
 MYPY = C:\Users\abhi0\anaconda3\envs\abhishek\Scripts\mypy
 BLACK = C:\Users\abhi0\anaconda3\envs\abhishek\Scripts\black
+CC = clang++
 
 .PHONY = format run 
 
-all: format type_check run
+all: format type_check run_py
 
 format:
 	@echo Formatting the source file with black...
@@ -16,7 +17,13 @@ type_check:
 	${MYPY} ${FNAME}
 	@echo.
 
-run:
+run_py:
 	@echo Running ${FNAME}!
 	@echo.
 	${PYTHON} ${FNAME}
+
+run_cpp:
+	@echo Running ${FNAME}!
+	@echo.
+	${CC} ${FNAME} && a.exe 
+
