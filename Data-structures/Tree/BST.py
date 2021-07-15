@@ -1,6 +1,8 @@
 # From: https://stackoverflow.com/questions/5444394/how-to-implement-a-binary-search-tree-in-python
 import random
 
+# Create a binary search tree
+
 
 class BST:
     def __init__(self, val=None):

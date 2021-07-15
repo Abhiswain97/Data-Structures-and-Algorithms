@@ -27,3 +27,9 @@ run_cpp:
 	@echo.
 	${CC} ${FNAME} && a.exe 
 
+run_c:
+	@echo Running ${FNAME}!
+	@echo.
+	gcc ${FNAME}
+
+
